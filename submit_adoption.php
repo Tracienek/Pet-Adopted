@@ -10,7 +10,8 @@ $sql = "INSERT INTO adoptions (pet_id, adopter_name, adopter_email, message)
         VALUES ('$pet_id', '$name', '$email', '$message')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Adoption request submitted successfully!";
+    header("Location: adopt.php?status=success");
+    exit();
 } else {
     echo "Error: " . mysqli_error($conn);
 }
